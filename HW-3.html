@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liubov-JS-HW3</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="body-container">
+        <header>
+            <h3>JavaScript Basic Course</h3>
+            <h2>Урок 3. Циклы, массивы, структуры данных</h2>
+        </header>
+        <div class="div-container">
+            <ol>
+                <li>
+                    <h3> С помощью цикла while вывести все простые числа в промежутке от 0 до 100.
+                    </h3>
+                    <script src="srcHW3-1.js"></script>
+                </li>
+                <li>
+                    <h3>С этого урока начинаем работать с функционалом интернет-магазина. Предположим, есть сущность
+                        корзины. Нужно реализовать функционал подсчета стоимости корзины в зависимости от находящихся в
+                        ней товаров.Товары в корзине хранятся в массиве. Задачи:</h3>
+                    <ol type="a">
+                        <li>
+                            Организовать такой массив для хранения товаров в корзине;
+                        </li>
+                        <li>
+                            Организовать функцию countBasketPrice, которая будет считать стоимость корзины.
+                        </li>
+                    </ol>
+                    <script src="srcHW3-2.js"></script>
+                </li>
+                <li>
+                    <h3>(По желанию, т.к. такая особенность практически не используется) Вывести с помощью цикла for
+                        числа от 0 до 9, НЕ используя тело цикла. </h3>
+                    <p>for(…){/* здесь пусто */}</p>
+
+                    <script>
+                        for (let i = 0; i < 10; console.log(i), i++);
+                    </script>
+                </li>
+                <li>
+                    <h3>Нарисовать горку с помощью console.log (используя цикл for), как показано на рисунке,
+                        только у вашей горки должно быть 20 рядов, а не 5:
+                    </h3>
+                    <p>
+                        x</br>
+                        xx</br>
+                        xxx</br>
+                        xxxx</br>
+                        xxxxx</br>
+                    </p>
+                    <script>
+                        for (let i = "x"; i.length < 20; console.log(i), i = i + "x");
+                    </script>
+                </li>
+            </ol>
+        </div>
+
+        <footer>
+            Copyright © Liubov' Kravtsova
+        </footer>
+    </div>
+
+</body>
+
+</html>
