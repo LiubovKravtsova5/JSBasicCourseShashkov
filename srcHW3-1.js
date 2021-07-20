@@ -3,8 +3,6 @@ let prime = Array.from(Array(101).keys());//массив Array(101),  каждо
 prime.shift(); //удаляем нулевой элемент
 for (let i = 99; i > 0; i--) {
     for (let j = 1; j < i; j++) {
-        //console.log(i, prime[i]);
-        //console.log(j, prime[j]);
         if (prime[i] % prime[j] == 0) {
             console.log(prime[i], "%", prime[j]);
             prime.splice(i, 1);
