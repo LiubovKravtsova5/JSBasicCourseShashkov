@@ -1,27 +1,33 @@
 "use strict"
 
-const intNum = {};
+var inputN;
+class decDiv {
+    constructor(inputN) {
+        this.units = inputN % 10; //это единицы
+        this.tens = (inputN % 100 - this.units) / 10; //это десятки
+        this.hundreds = (inputN - this.tens * 10 - this.units) / 100; //это сотни  
+    }
 
-while (!Number.isInteger(intNum.inputNum) || intNum.inputNum > 1000 || intNum.inputNum < 0) {
-    if (!isNaN(intNum.inputNum)) {
-        if (!Number.isInteger(intNum.inputNum) || intNum.inputNum == "") {
+}
+
+while (!Number.isInteger(inputN) || inputN > 1000 || inputN < 0) {
+    if (!isNaN(inputN)) {
+        if (!Number.isInteger(inputN) || inputN == "") {
             alert("Вы ввели не число!");
-            console.log(intNum);
+            console.log(inputN);
         } else {
             alert("Вы выбрали чило не из диапазона [0, 999]")
         }
 
     }
 
-    let inputN = prompt("введите число в диапазоне [0, 999]");
+    inputN = prompt("введите число в диапазоне [0, 999]");
     if (inputN == "") {
-        intNum.inputNum = inputN;
         continue;
     }
-    intNum.inputNum = Math.round(inputN);
-    console.log(intNum);
+    inputN = Math.round(inputN);
+    console.log(inputN);
 }
-intNum.units = intNum.inputNum % 10; //это единицы
-intNum.tens = (intNum.inputNum % 100 - intNum.units) / 10; //это десятки
-intNum.hundreds = (intNum.inputNum - intNum.tens * 10 - intNum.units) / 100; //это сотни
-console.log(intNum);
+let decimalDivision = new decDiv(inputN);
+
+console.log(decimalDivision);
