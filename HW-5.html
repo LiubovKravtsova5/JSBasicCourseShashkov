@@ -6,19 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Liubov-JS-HW5</title>
-   <!-- <link rel="stylesheet" href="style.css"> -->
+   <link rel="stylesheet" href="style.css"> 
    <style>
     table {
         border-collapse: collapse;
     }
     tr {
-        width: 20px;
-        height: 20px;
+        width: 50px;
+        height: 50px;
     }
     td {
+        color: red;
+        font-size: x-large;
+        font-weight: bold;
+        text-align: center;
         border: 1px solid #888;
-        width: 20px;
-        height: 20px;
+        width: 50px;
+        height: 50px;
         background-color: #eee;
     }
 </style>
@@ -42,6 +46,17 @@
                 </li>
                 <table id="chess"></table>
                 <script src="srcHW5-1ex.js"> </script>
+                <li>
+                    Сделать генерацию корзины динамической: верстка корзины не должна находиться в HTML-структуре. Там должен быть только div, в который будет вставляться корзина, сгенерированная на базе JS:
+                    <ol>
+                        <li>
+                        Пустая корзина должна выводить строку «Корзина пуста»; 
+                        </li>
+                        <li>
+                        Наполненная должна выводить «В корзине: n товаров на сумму m рублей».
+                        </li>
+                    </ol>
+                </li>
             </ol>
         </div>
 
