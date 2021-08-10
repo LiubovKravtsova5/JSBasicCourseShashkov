@@ -76,9 +76,8 @@ output {
 }
 
 button {
+  background-color: grey;
   outline: none;
-  -webkit-box-shadow: 0 0 20px #e2e2e2;
-          box-shadow: 0 0 20px #e2e2e2;
   border-radius: 3px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -87,7 +86,6 @@ button {
       -ms-grid-row-align: center;
       align-self: center;
   color: black;
-  background-color: white;
   padding: 20px;
   font-family: Courier;
   font-weight: 500;
@@ -96,7 +94,8 @@ button {
 
 button:hover {
   font-weight: 700;
-  border: 2px solid black;
+  -webkit-box-shadow: 0 0 5px #e2e2e2;
+          box-shadow: 0 0 5px #e2e2e2;
 }
 
 ul {
