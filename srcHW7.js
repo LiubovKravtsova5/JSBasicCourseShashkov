@@ -5,7 +5,7 @@ const settings = {
     speed: 2,
     winFoodCount: 50,
 };
-
+//начальные условия игры
 const config = {
     settings,
 
@@ -28,7 +28,7 @@ const config = {
     getWinFoodCount() {
         return this.settings.winFoodCount;
     },
-
+    //валидация
     validate() {
         const result = {
             isValid: true,
@@ -58,7 +58,7 @@ const config = {
         return result;
     },
 };
-
+//сетка поля
 const map = {
     cells: {},
     usedCells: [],
@@ -84,8 +84,8 @@ const map = {
             }
         }
     },
-
-    render(snakePointsArray, foodPoint) {
+    //отрисовка игры
+    render(snakePointsArray, foodPoint, barrierPoint) {
         for (const cell of this.usedCells) {
             cell.className = 'cell';
         }
@@ -101,9 +101,13 @@ const map = {
         const foodCell = this.cells[`x${foodPoint.x}_y${foodPoint.y}`];
         foodCell.classList.add('food');
         this.usedCells.push(foodCell);
+
+        const barrierCell = this.cells[`x${barrierPoint.x}_y${barrierPoint.y}`];
+        barrierCell.classList.add('barrier');
+        this.usedCells.push(barrierCell);
     },
 };
-
+//змейка
 const snake = {
     body: [],
     direction: null,
@@ -161,7 +165,7 @@ const snake = {
         }
     },
 };
-
+//еда
 const food = {
     x: null,
     y: null,
@@ -182,7 +186,27 @@ const food = {
         return this.x === point.x && this.y === point.y;
     },
 };
+const barrier = {
+    x: null,
+    y: null,
 
+    getCoordinates() {
+        return {
+            x: this.x,
+            y: this.y,
+        };
+    },
+
+    setCoordinates(point) {
+        this.x = point.x;
+        this.y = point.y;
+    },
+
+    isOnPoint(point) {
+        return this.x === point.x && this.y === point.y;
+    },
+}
+//фаза игры
 const status = {
     condition: null,
 
@@ -206,12 +230,13 @@ const status = {
         return this.condition === 'stopped';
     },
 };
-
+//сборка игры.Алгоритм.Логика
 const game = {
     config,
     map,
     snake,
     food,
+    barrier,
     status,
     tickInterval: null,
 
@@ -288,6 +313,7 @@ const game = {
         this.stop();
         this.snake.init(this.getStartSnakeBody(), 'up');
         this.food.setCoordinates(this.getRandomFreeCoordinates());
+        this.barrier.setCoordinates(this.getRandomFreeCoordinates());
         this.render()
     },
 
@@ -301,7 +327,7 @@ const game = {
     },
 
     getRandomFreeCoordinates() {
-        const exclude = [this.food.getCoordinates(), ...this.snake.getBody()];
+        const exclude = [this.food.getCoordinates(), this.barrier.getCoordinates(), ...this.snake.getBody()];
 
         while (true) {
             const rndPoint = {
@@ -352,7 +378,8 @@ const game = {
             nextHeadPoint.x < this.config.getColsCount() &&
             nextHeadPoint.y < this.config.getRowsCount() &&
             nextHeadPoint.x >= 0 &&
-            nextHeadPoint.y >= 0;
+            nextHeadPoint.y >= 0 &&
+            !this.barrier.isOnPoint(nextHeadPoint);
     },
 
     isGameWon() {
@@ -370,8 +397,8 @@ const game = {
     },
 
     render() {
-        this.map.render(this.snake.getBody(), this.food.getCoordinates());
+        this.map.render(this.snake.getBody(), this.food.getCoordinates(), this.barrier.getCoordinates());
     },
 };
-
+//запуск игры
 game.init();
