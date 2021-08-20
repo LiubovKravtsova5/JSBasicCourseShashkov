@@ -52,22 +52,20 @@ output{
     background-color: white;
 }
 button{
-    outline: none;
-    box-shadow:0 0 20px rgb(226, 226, 226);
+    background-color: grey;
+    outline: none;    
     border-radius: 3px;
     width: fit-content;
     align-self: center;
     color: black;
-    background-color: white;
     padding: 20px;
     font-family: Courier;
     font-weight: 500;
     font-size: 20px;
     &:hover{
-        font-weight: 700;
-        border: 2px solid black;
-        
-    } 
+        font-weight: 700;        
+        box-shadow:0 0 5px rgb(226, 226, 226);
+    }
 }
 ul{
     list-style-type:none;
